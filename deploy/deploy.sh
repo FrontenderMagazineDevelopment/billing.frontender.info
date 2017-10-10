@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-export RESULT_DIR=token.frontender.info.${TRAVIS_BUILD_NUMBER}
+export RESULT_DIR=billing.frontender.info.${TRAVIS_BUILD_NUMBER}
 export SSHPASS=${SSH_PASS}
-export ARCH_NAME=token.package.tgz
-export SYMLINK_NAME=token.frontender.info
-export PROCESS_NAME=token.frontender.info
+export ARCH_NAME=billing.package.tgz
+export SYMLINK_NAME=billing.frontender.info
+export PROCESS_NAME=billing.frontender.info
 
 mkdir ${RESULT_DIR}
 shopt -s extglob
@@ -19,7 +19,6 @@ rm ./${ARCH_NAME};
 ls -dt ${WEB_PATH}*/ | tail -n +5 | xargs rm -rf;
 rm ./.env
 if [ ! -f ".env" ]; then
-    echo CHALLENGE_BASE=${CHALLENGE_BASE} >> .env
     echo JWT_SECRET=${JWT_SECRET} >> .env
     echo COOKIE_SECRET=${COOKIE_SECRET} >> .env
 fi
